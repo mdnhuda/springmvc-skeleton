@@ -1,5 +1,7 @@
 package com.hello.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,7 +10,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class HelloService {
+    private Logger log = LoggerFactory.getLogger(getClass());
+
     public String getGreeting() {
+        log.debug("Called getGreeting()");
+
         return "Hello Earthling!";
     }
 }
