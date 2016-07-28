@@ -1,5 +1,7 @@
 package com.hello.controller;
 
+import com.hello.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HelloController {
 
+    @Autowired
+    private HelloService helloService;
+
     @RequestMapping("/")
     public String index() {
         return "redirect:/greeting";
@@ -19,7 +24,7 @@ public class HelloController {
     @RequestMapping("/greeting")
     @ResponseBody
     public String greeting() {
-        return "Greetings Earthling!";
+        return helloService.getGreeting();
     }
 
 }
