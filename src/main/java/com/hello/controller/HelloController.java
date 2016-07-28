@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HelloController {
 
+    @RequestMapping("/")
+    public String index() {
+        return "redirect:/greeting";
+    }
+
     @RequestMapping("/greeting")
     @ResponseBody
     public String greeting() {
